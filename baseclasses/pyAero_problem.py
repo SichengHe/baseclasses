@@ -313,7 +313,14 @@ areaRef=0.772893541, chordRef=0.64607, xRef=0.0, zRef=0.0, alpha=3.06, T=255.56)
             "T",
             "reynolds",
             "reynoldsLength",
+            'omegaFourier', 
+            'rho'
         ]
+        if getattr(self, 'omegaFourier') is not None:
+            omegaFourier = getattr(self, 'omegaFourier')
+            setattr(self, 'omegaFourier', omegaFourier)
+        else:
+            setattr(self, 'omegaFourier', None)
 
         self.possibleDVs = set()
         for var in self.allVarFuncs:
