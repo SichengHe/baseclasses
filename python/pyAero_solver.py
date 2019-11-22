@@ -366,7 +366,7 @@ class AeroSolver(BaseSolver):
         
         pass
 
-    def getInitialSurfaceCoordinates(self, groupName=None):
+    def getInitialSurfaceCoordinates(self, groupName=None, HSCflag=True):
         """
 
         """
@@ -381,7 +381,7 @@ class AeroSolver(BaseSolver):
                 self.setSurfaceCoordinates(
                     self.DVGeo.update(ptSetName, config=self.curAP.name), 
                     self.designFamilyGroup)
-                self.updateGeometryInfo()
+                self.updateGeometryInfo(HSCflag=HSCflag) # NOTE: HACK!!!
                 return self.getSurfaceCoordinates(groupName)
             else:
                 # otherwise, the initial mesh is the undeflected mesh, so

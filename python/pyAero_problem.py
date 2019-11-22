@@ -305,7 +305,13 @@ areaRef=0.772893541, chordRef=0.64607, xRef=0.0, zRef=0.0, alpha=3.06, T=255.56)
         self.allVarFuncs = ['alpha', 'beta', 'areaRef', 'chordRef', 'spanRef',
                     'xRef', 'yRef', 'zRef', 'xRot', 'yRot', 'zRot', 'momentAxis',
                     'phat', 'qhat', 'rhat', 'mach', 'altitude', 'P', 'T',
-                    'reynolds','reynoldsLength']
+                    'reynolds','reynoldsLength', 'omegaFourier', 'rho']
+
+        if getattr(self, 'omegaFourier') is not None:
+            omegaFourier = getattr(self, 'omegaFourier')
+            setattr(self, 'omegaFourier', omegaFourier)
+        else:
+            setattr(self, 'omegaFourier', None)
 
         self.possibleDVs = set()
         for var in self.allVarFuncs:
