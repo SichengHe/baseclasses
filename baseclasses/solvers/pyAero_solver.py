@@ -340,10 +340,8 @@ class AeroSolver(BaseSolver):
                 # if we have a geometry object, return the undeflected
                 # shape generated directly from the design variables
                 ptSetName = self.getPointSetName(self.curAP.name)
-                self.setSurfaceCoordinates(
-                    self.DVGeo.update(ptSetName, config=self.curAP.name), 
-                    self.designFamilyGroup)
-                self.updateGeometryInfo(HSCflag=HSCflag) # NOTE: HACK!!!
+                self.setSurfaceCoordinates(self.DVGeo.update(ptSetName, config=self.curAP.name), self.designFamilyGroup)
+                self.updateGeometryInfo()  # NOTE: HACK!!!
                 return self.getSurfaceCoordinates(groupName)
             else:
                 # otherwise, the initial mesh is the undeflected mesh, so
